@@ -1,0 +1,7 @@
+{
+  "name": "gestor-de-vendas",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
