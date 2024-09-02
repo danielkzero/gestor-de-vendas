@@ -3,6 +3,11 @@ import App from './App.vue'
 import router from './router';
 
 import { IonicVue } from '@ionic/vue';
+import 'boxicons/css/boxicons.min.css';
+// Importa o tema iOS
+import '@ionic/vue/css/ionic.bundle.css';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/vue/css/core.css';
@@ -35,7 +40,9 @@ import '@ionic/vue/css/palettes/dark.system.css';
 import './theme/variables.css';
 
 const app = createApp(App)
-  .use(IonicVue)
+  .use(IonicVue, {
+    mode: 'ios', // Define o modo iOS globalmente
+  })
   .use(router);
 
 router.isReady().then(() => {
