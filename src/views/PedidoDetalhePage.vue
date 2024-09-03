@@ -20,39 +20,13 @@
                             <ion-icon name="storefront" class="mt-1 me-2"></ion-icon> <span>Selecione o cliente</span>
                         </ion-label>
                     </ion-item>
-                    <ion-button expand="full" class="my-3" @click="TelaAddProdutos(true)">ADICIONAR PRODUTOS</ion-button>
+                    <ion-button expand="full" class="my-3" @click="TelaAddProdutos(true)">ADICIONAR
+                        PRODUTOS</ion-button>
                     <ion-button expand="full" class="my-3" color="light">DEFINIR DESCONTOS E ACRÉSCIMOS</ion-button>
                 </ion-list>
 
 
-
-                <ion-modal :is-open="Aberta">
-                    <ion-header>
-                        <ion-toolbar>
-                            <ion-title>
-                                Catálogo 
-                            </ion-title>
-                            <ion-buttons slot="start">
-                                <ion-button @click="TelaAddProdutos(false)">
-                                    <ion-icon name="chevron-back-outline"></ion-icon> Voltar
-                                </ion-button>
-                            </ion-buttons>
-                        </ion-toolbar>
-                        <ion-toolbar>
-                            <ion-searchbar placeholder="Buscar produtos"></ion-searchbar>
-                            <ion-button slot="end" fill="clear" size="small"><ion-icon slot="end" name="barcode-outline"></ion-icon></ion-button>
-                        </ion-toolbar>
-                    </ion-header>
-                    <ion-content class="ion-padding">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                            Magni illum quidem recusandae ducimus quos reprehenderit. 
-                            Veniam, molestias quos, dolorum consequuntur nisi deserunt omnis id illo sit cum qui. 
-                            Eaque, dicta.
-                        </p>
-                    </ion-content>
-                </ion-modal>
-
+                <ModalCatalogoProdutos :aberto="Aberta" :dados="produtos" @TelaAddProdutos="TelaAddProdutos"></ModalCatalogoProdutos>
 
 
                 <ion-list>
@@ -134,11 +108,11 @@ import {
     IonTitle
 } from '@ionic/vue';
 import { addIcons } from 'ionicons';
-import { storefront, chevronBackOutline, barcodeOutline } from 'ionicons/icons';
-
+import { storefront, chevronBackOutline, barcodeOutline, add, removeOutline } from 'ionicons/icons';
+import ModalCatalogoProdutos from '@/components/ModalCatalogoProdutos.vue';
 addIcons({
     storefront: storefront,
-    chevronBackOutline: chevronBackOutline, barcodeOutline
+    chevronBackOutline: chevronBackOutline, barcodeOutline, add, removeOutline
 });
 export default {
     components: {
@@ -164,12 +138,27 @@ export default {
         IonContent,
         IonHeader,
         IonToolbar,
-        IonTitle
+        IonTitle,
+        ModalCatalogoProdutos
     },
     data() {
         return {
             id: this.$route.params.id,
             Aberta: false,
+            produtos: [
+                { "CdChamada": "09.022", "NmProdutoERP": "MANG. JARDIM DUPLAFLEX - 10 MTS", "preco": 9.01 },
+                { "CdChamada": "09.024", "NmProdutoERP": "MANG. JARDIM DUPLAFLEX - 20 MTS", "preco": 11.42 },
+                { "CdChamada": "09.025", "NmProdutoERP": "MANG. JARDIM DUPLAFLEX - 30 MTS", "preco": 15.85 },
+                { "CdChamada": "09.023", "NmProdutoERP": "MANG. JARDIM DUPLAFLEX - 15 MTS", "preco": 10.50 },
+                { "CdChamada": "09.001", "NmProdutoERP": "MANGUEIRA CRISTAL 5/16\"X0,8 MM - 50 MTS", "preco": 22.55 },
+                { "CdChamada": "09.008", "NmProdutoERP": "MANGUEIRA CRISTAL 1/2\"X2,0 MM - 50 MTS", "preco": 33.54 },
+                { "CdChamada": "09.009", "NmProdutoERP": "MANGUEIRA CRISTAL 3/4\"X1,5 MM - 50 MTS", "preco": 44.87 },
+                { "CdChamada": "09.012", "NmProdutoERP": "MANGUEIRA CRISTAL 1\"X2,5 MM - 50 MTS", "preco": 55.98 },
+                { "CdChamada": "09.004", "NmProdutoERP": "MANGUEIRA CRISTAL 3/8\"X0,8 MM - 50 MTS", "preco": 66.50 },
+                { "CdChamada": "09.005", "NmProdutoERP": "MANGUEIRA CRISTAL 3/8\"X1,0 MM - 50 MTS", "preco": 77.04 },
+                { "CdChamada": "09.017", "NmProdutoERP": "MANGUEIRA TRAN�ADA PT 250 5/16\" - 50 MTS", "preco": 88.21 },
+                { "CdChamada": "09.018", "NmProdutoERP": "MANGUEIRA TRAN�ADA PT 250 3/8\" - 50 MTS", "preco": 99.01 },
+            ]
         }
     },
     methods: {

@@ -84,7 +84,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 ion-label p {
     margin: 0;
     font-size: 14px;
