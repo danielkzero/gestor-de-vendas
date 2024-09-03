@@ -37,7 +37,7 @@
                                 style="min-width: 100px; max-width: 100px;">
                                 <p class="d-flex align-items-baseline">
                                     <span class="fs-1">{{ getQuantidade(produto.CdChamada) }}</span><span
-                                        class="ms-1">UN</span>
+                                        class="ms-1">{{ produto.unidade }}</span>
                                 </p>
                             </ion-label>
                         </ion-item>
