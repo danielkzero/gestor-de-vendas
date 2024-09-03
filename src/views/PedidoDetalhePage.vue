@@ -26,7 +26,11 @@
                 </ion-list>
 
 
-                <ModalCatalogoProdutos :aberto="Aberta" :dados="produtos" @TelaAddProdutos="TelaAddProdutos"></ModalCatalogoProdutos>
+                <ModalCatalogoProdutos 
+                    :aberto="Aberta" 
+                    :dados="produtos" 
+                    @TelaAddProdutos="TelaAddProdutos">
+                </ModalCatalogoProdutos>
 
 
                 <ion-list>
@@ -162,8 +166,8 @@ export default {
         }
     },
     methods: {
-        TelaAddProdutos(Aberta: Bool) {
-            this.Aberta = Aberta;
+        TelaAddProdutos(status: Boolean) {
+            this.Aberta = status;
         }
     }
 }
