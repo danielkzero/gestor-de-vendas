@@ -5,16 +5,12 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'Login',
-    component: () => import ('@/views/Login.vue')
+    component: () => import ('@/views/LoginPage.vue')
   },
   {
     path: '/principal',
-    redirect: '/home'
-  },
-  {
-    path: '/home',
-    name: 'Home',
-    component: () => import('@/views/HomePage.vue')
+    name: 'Principal',
+    component: () => import('@/views/PrincipalPage.vue')
   },
   {
     path: '/pedido',
